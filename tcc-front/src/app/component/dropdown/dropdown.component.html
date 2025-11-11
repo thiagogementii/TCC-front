@@ -1,0 +1,23 @@
+<div class="nav-item dropdown" (mouseenter)="onOpen()" (mouseleave)="onClose()">
+  <a class="nav-link" href="#" (click)="onToggle($event)" [class.active]="isOpen" aria-haspopup="true" [attr.aria-expanded]="isOpen">
+    {{ label }}
+  </a>
+
+  <ul class="dropdown-menu" *ngIf="isOpen" role="menu" [attr.aria-label]="label + ' menu'">
+    <li *ngFor="let it of items">
+      <a class="dropdown-item"
+         *ngIf="it.route"
+         [routerLink]="it.route"
+         (click)="onSelect(it)">
+        {{ it.label }}
+      </a>
+
+      <a class="dropdown-item"
+         *ngIf="!it.route"
+         [href]="it.href || '#'"
+         (click)="onSelect(it)">
+        {{ it.label }}
+      </a>
+    </li>
+  </ul>
+</div>

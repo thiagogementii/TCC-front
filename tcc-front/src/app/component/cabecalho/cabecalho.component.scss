@@ -1,0 +1,89 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 48px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    span {
+      font-weight: 700;
+      font-size: 20px;
+      color: #1a1a1a;
+    }
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    .nav-link {
+      position: relative;
+      font-size: 16px;
+      color: #333;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: #d6001c; // vermelho estilo Webmotors
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background-color: #d6001c;
+        transition: width 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+
+      &.active {
+        color: #d6001c;
+      }
+    }
+
+    /* Dropdown styles */
+    .dropdown {
+      position: relative;
+
+      .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        padding: 8px 0;
+        list-style: none;
+        min-width: 160px;
+        z-index: 50;
+
+        .dropdown-item {
+          display: block;
+          padding: 8px 16px;
+          color: #333;
+          text-decoration: none;
+          font-size: 14px;
+
+          &:hover {
+            background: #f7f7f7;
+            color: #d6001c;
+          }
+        }
+      }
+    }
+  }
+}

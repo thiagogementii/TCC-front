@@ -1,0 +1,15 @@
+<header class="header">
+  <div class="logo">
+    <img src="assets/logo.svg" alt="Logo" />
+    <span>webmotors</span>
+  </div>
+
+  <nav class="nav">
+    <app-dropdown
+      [label]="'Comprar'"
+      [items]="comprarItems"
+      [openOnHover]="true"
+      (select)="onComprarSelect($event)">
+    </app-dropdown>
+  </nav>
+</header>
