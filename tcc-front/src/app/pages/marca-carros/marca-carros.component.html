@@ -1,0 +1,38 @@
+<app-cabecalho></app-cabecalho>
+
+<div class="marca-page">
+  <div class="marca-header">
+    <div class="container">
+      <button class="back-btn" (click)="goBack()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        Voltar
+      </button>
+      <h1>{{ brandName }}</h1>
+      <p>{{ carsCount }} veículos disponíveis</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="cars-grid">
+      <div class="car-card" *ngFor="let car of cars">
+        <div class="car-image">
+          <img [src]="car.image" [alt]="car.name">
+          <span class="car-year">{{ car.year }}</span>
+        </div>
+        <div class="car-info">
+          <h3>{{ car.name }}</h3>
+          <p class="car-price">R$ {{ car.price | number:'1.0-0' }}</p>
+          <div class="car-details">
+            <span>{{ car.km | number:'1.0-0' }} km</span>
+            <span>•</span>
+            <span>{{ car.transmission }}</span>
+          </div>
+          <button class="view-btn">Ver detalhes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
