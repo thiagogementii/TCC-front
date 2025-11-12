@@ -3,92 +3,28 @@
 </div>
 
 <div class="componenteCorpo">
-  <!-- Hero Section com Carrossel de Imagens -->
-  <section class="hero-carousel">
-    <div class="carousel-container">
-      <div class="carousel-wrapper" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
-        <div class="carousel-slide" *ngFor="let image of carouselImages">
-          <img [src]="image.url" [alt]="image.alt">
-          <div class="carousel-overlay">
-            <h1>{{ image.title }}</h1>
-            <p>{{ image.subtitle }}</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Navegação do carrossel -->
-      <button class="carousel-btn prev" (click)="previousSlide()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-      <button class="carousel-btn next" (click)="nextSlide()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
-
-      <!-- Indicadores -->
-      <div class="carousel-indicators">
-        <span
-          *ngFor="let image of carouselImages; let i = index"
-          [class.active]="i === currentSlide"
-          (click)="goToSlide(i)">
-        </span>
-      </div>
-    </div>
-  </section>
+  <!-- Seção Hero com Carrossel de Imagens -->
+  <app-carrossel-hero
+    [imagens]="imagensCarrossel"
+    [autoPlay]="true"
+    [intervaloAutoPlay]="5000">
+  </app-carrossel-hero>
 
   <!-- Barra de Pesquisa -->
-  <section class="search-section">
-    <div class="search-container">
-      <h2>Encontre o carro dos seus sonhos</h2>
-      <div class="search-bar">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <path d="m21 21-4.35-4.35"></path>
-        </svg>
-        <input
-          type="text"
-          placeholder="Buscar por marca, modelo ou ano..."
-          [(ngModel)]="searchQuery"
-        >
-        <button class="search-btn">Buscar</button>
-      </div>
-    </div>
-  </section>
+  <app-barra-busca
+    [titulo]="'Encontre o carro dos seus sonhos'"
+    [placeholderTexto]="'Buscar por marca, modelo ou ano...'"
+    [textoBotao]="'Buscar'"
+    (buscar)="aoBuscar($event)">
+  </app-barra-busca>
 
   <!-- Carrossel de Marcas -->
-  <section class="brands-section">
-    <div class="brands-container">
-      <h2>Marcas Disponíveis</h2>
-      <p class="subtitle">Explore nossa seleção de veículos das melhores marcas</p>
-
-      <div class="brands-carousel">
-        <button class="brands-nav prev" (click)="scrollBrands('left')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-
-        <div class="brands-wrapper" #brandsWrapper>
-          <div class="brand-card" *ngFor="let brand of carBrands" (click)="navigateToBrand(brand.slug)">
-            <div class="brand-logo">
-              <img [src]="brand.logo" [alt]="brand.name">
-            </div>
-            <h3>{{ brand.name }}</h3>
-            <span class="brand-count">{{ brand.count }} veículos</span>
-          </div>
-        </div>
-
-        <button class="brands-nav next" (click)="scrollBrands('right')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </section>
+  <app-carrossel-marcas
+    [marcas]="marcasCarros"
+    [titulo]="'Marcas Disponíveis'"
+    [subtitulo]="'Explore nossa seleção de veículos das melhores marcas'"
+    (marcaSelecionada)="aoSelecionarMarca($event)">
+  </app-carrossel-marcas>
 
   <router-outlet></router-outlet>
 </div>

@@ -1,0 +1,31 @@
+<section class="secao-marcas">
+  <div class="container-marcas">
+    <h2>{{ titulo }}</h2>
+    <p class="subtitulo">{{ subtitulo }}</p>
+
+    <div class="carrossel-marcas">
+      <button class="nav-marcas anterior" (click)="rolarMarcas('esquerda')" *ngIf="marcas.length > 4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="wrapper-marcas" #wrapperMarcas>
+        <div class="card-marca" *ngFor="let marca of marcas" (click)="aoClicarMarca(marca)">
+          <div class="logo-marca">
+            <img [src]="marca.logo" [alt]="marca.nome">
+          </div>
+          <h3>{{ marca.nome }}</h3>
+          <span class="contagem-marca">{{ marca.quantidade }} veículos</span>
+        </div>
+      </div>
+
+      <button class="nav-marcas proximo" (click)="rolarMarcas('direita')" *ngIf="marcas.length > 4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+

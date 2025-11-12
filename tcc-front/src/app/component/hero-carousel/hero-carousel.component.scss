@@ -1,0 +1,155 @@
+.carrossel-hero {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  background: #000;
+
+  .container-carrossel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .wrapper-carrossel {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slide-carrossel {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .sobreposicao-carrossel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+
+      h1 {
+        font-size: 48px;
+        font-weight: 700;
+        margin: 0 0 16px 0;
+        font-family: 'Inter', sans-serif;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+      }
+
+      p {
+        font-size: 20px;
+        margin: 0;
+        max-width: 600px;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+      }
+    }
+  }
+
+  .botao-carrossel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+
+    &:hover {
+      background: #fff;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    &.anterior {
+      left: 20px;
+    }
+
+    &.proximo {
+      right: 20px;
+    }
+
+    svg {
+      color: #1a1a1a;
+    }
+  }
+
+  .indicadores-carrossel {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+
+    span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.ativo {
+        background: #fff;
+        width: 32px;
+        border-radius: 6px;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .carrossel-hero {
+    height: 400px;
+
+    .slide-carrossel .sobreposicao-carrossel {
+      h1 {
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+
+    .botao-carrossel {
+      width: 40px;
+      height: 40px;
+
+      &.anterior {
+        left: 10px;
+      }
+
+      &.proximo {
+        right: 10px;
+      }
+    }
+  }
+}
+

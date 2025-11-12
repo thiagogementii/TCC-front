@@ -1,0 +1,190 @@
+.secao-marcas {
+  padding: 80px 20px;
+  background: #fff;
+
+  .container-marcas {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin: 0 0 12px 0;
+      color: #1a1a1a;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .subtitulo {
+      text-align: center;
+      font-size: 18px;
+      color: #64748b;
+      margin: 0 0 48px 0;
+    }
+
+    .carrossel-marcas {
+      position: relative;
+      padding: 0 60px;
+
+      .nav-marcas {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #fff;
+        border: 2px solid #e2e8f0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 10;
+
+        &:hover {
+          background: #d6001c;
+          border-color: #d6001c;
+
+          svg {
+            color: #fff;
+          }
+        }
+
+        &.anterior {
+          left: 0;
+        }
+
+        &.proximo {
+          right: 0;
+        }
+
+        svg {
+          color: #1a1a1a;
+          transition: color 0.3s ease;
+        }
+      }
+
+      .wrapper-marcas {
+        display: flex;
+        gap: 24px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 20px 0;
+
+        &::-webkit-scrollbar {
+          height: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: #f1f5f9;
+          border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: #cbd5e1;
+          border-radius: 4px;
+
+          &:hover {
+            background: #94a3b8;
+          }
+        }
+
+        .card-marca {
+          min-width: 200px;
+          background: #fff;
+          border: 2px solid #e2e8f0;
+          border-radius: 16px;
+          padding: 32px 24px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            border-color: #d6001c;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(214, 0, 28, 0.15);
+
+            .logo-marca {
+              transform: scale(1.1);
+            }
+          }
+
+          .logo-marca {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+
+            img {
+              max-width: 80px;
+              max-height: 80px;
+              object-fit: contain;
+            }
+          }
+
+          h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+          }
+
+          .contagem-marca {
+            font-size: 14px;
+            color: #64748b;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .secao-marcas {
+    padding: 60px 20px;
+
+    .container-marcas {
+      h2 {
+        font-size: 28px;
+      }
+
+      .subtitulo {
+        font-size: 16px;
+      }
+
+      .carrossel-marcas {
+        padding: 0 40px;
+
+        .nav-marcas {
+          width: 36px;
+          height: 36px;
+        }
+
+        .wrapper-marcas .card-marca {
+          min-width: 160px;
+          padding: 24px 16px;
+
+          .logo-marca {
+            width: 80px;
+            height: 80px;
+
+            img {
+              max-width: 60px;
+              max-height: 60px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

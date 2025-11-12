@@ -1,9 +1,9 @@
-.marca-page {
+.pagina-marca {
   min-height: 100vh;
   background: #f8f9fa;
 }
 
-.marca-header {
+.cabecalho-marca {
   background: linear-gradient(135deg, #d6001c 0%, #a00015 100%);
   color: #fff;
   padding: 40px 20px 60px;
@@ -13,7 +13,7 @@
     margin: 0 auto;
   }
 
-  .back-btn {
+  .botao-voltar {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: #fff;
@@ -54,7 +54,7 @@
   padding: 0 20px;
 }
 
-.cars-grid {
+.grade-carros {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
@@ -62,7 +62,7 @@
   margin-top: -40px;
 }
 
-.car-card {
+.card-carro {
   background: #fff;
   border-radius: 16px;
   overflow: hidden;
@@ -74,12 +74,12 @@
     transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 
-    .car-image img {
+    .imagem-carro img {
       transform: scale(1.05);
     }
   }
 
-  .car-image {
+  .imagem-carro {
     position: relative;
     width: 100%;
     height: 220px;
@@ -93,7 +93,7 @@
       transition: transform 0.3s ease;
     }
 
-    .car-year {
+    .ano-carro {
       position: absolute;
       top: 12px;
       right: 12px;
@@ -107,7 +107,7 @@
     }
   }
 
-  .car-info {
+  .info-carro {
     padding: 20px;
 
     h3 {
@@ -118,7 +118,7 @@
       font-family: 'Inter', sans-serif;
     }
 
-    .car-price {
+    .preco-carro {
       font-size: 24px;
       font-weight: 700;
       color: #d6001c;
@@ -126,7 +126,7 @@
       font-family: 'Inter', sans-serif;
     }
 
-    .car-details {
+    .detalhes-carro {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -136,7 +136,7 @@
       font-family: 'Inter', sans-serif;
     }
 
-    .view-btn {
+    .botao-ver {
       width: 100%;
       background: linear-gradient(135deg, #d6001c 0%, #a00015 100%);
       color: #fff;
@@ -162,7 +162,7 @@
 }
 
 @media (max-width: 768px) {
-  .marca-header {
+  .cabecalho-marca {
     padding: 24px 20px 40px;
 
     h1 {
@@ -174,7 +174,7 @@
     }
   }
 
-  .cars-grid {
+  .grade-carros {
     grid-template-columns: 1fr;
     gap: 16px;
     padding: 24px 0;

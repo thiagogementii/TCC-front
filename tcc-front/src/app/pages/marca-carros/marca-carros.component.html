@@ -1,35 +1,35 @@
 <app-cabecalho></app-cabecalho>
 
-<div class="marca-page">
-  <div class="marca-header">
+<div class="pagina-marca">
+  <div class="cabecalho-marca">
     <div class="container">
-      <button class="back-btn" (click)="goBack()">
+      <button class="botao-voltar" (click)="voltar()">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
         Voltar
       </button>
-      <h1>{{ brandName }}</h1>
-      <p>{{ carsCount }} veículos disponíveis</p>
+      <h1>{{ nomeMarca }}</h1>
+      <p>{{ quantidadeCarros }} veículos disponíveis</p>
     </div>
   </div>
 
   <div class="container">
-    <div class="cars-grid">
-      <div class="car-card" *ngFor="let car of cars">
-        <div class="car-image">
-          <img [src]="car.image" [alt]="car.name">
-          <span class="car-year">{{ car.year }}</span>
+    <div class="grade-carros">
+      <div class="card-carro" *ngFor="let carro of carros">
+        <div class="imagem-carro">
+          <img [src]="carro.imagem" [alt]="carro.nome">
+          <span class="ano-carro">{{ carro.ano }}</span>
         </div>
-        <div class="car-info">
-          <h3>{{ car.name }}</h3>
-          <p class="car-price">R$ {{ car.price | number:'1.0-0' }}</p>
-          <div class="car-details">
-            <span>{{ car.km | number:'1.0-0' }} km</span>
+        <div class="info-carro">
+          <h3>{{ carro.nome }}</h3>
+          <p class="preco-carro">R$ {{ carro.preco | number:'1.0-0' }}</p>
+          <div class="detalhes-carro">
+            <span>{{ carro.km | number:'1.0-0' }} km</span>
             <span>•</span>
-            <span>{{ car.transmission }}</span>
+            <span>{{ carro.transmissao }}</span>
           </div>
-          <button class="view-btn">Ver detalhes</button>
+          <button class="botao-ver">Ver detalhes</button>
         </div>
       </div>
     </div>
