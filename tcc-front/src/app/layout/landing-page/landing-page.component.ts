@@ -46,20 +46,10 @@ export class LandingPageComponent implements OnInit {
   }
 
   aoBuscar(consulta: string) {
-    console.log('Buscar por:', consulta);
-    // Implementar navegação para página de resultados
-    // this.router.navigate(['/busca'], { queryParams: { q: consulta } });
-
-    // Ou buscar na API
-    this.servicoApi.buscarCarros(consulta).subscribe({
-      next: (resultados) => {
-        console.log('Resultados:', resultados);
-        // Tratar resultados
-      },
-      error: (erro) => {
-        console.error('Erro ao buscar:', erro);
-      }
-    });
+    if (consulta && consulta.trim()) {
+      // Navega para página de resultados com a consulta
+      this.router.navigate(['/busca'], { queryParams: { q: consulta.trim() } });
+    }
   }
 
   aoSelecionarMarca(marca: Marca) {

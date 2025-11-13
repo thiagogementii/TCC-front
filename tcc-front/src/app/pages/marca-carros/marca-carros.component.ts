@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ApiService } from '../../services/api.service';
-import { Marca } from '../../models/marca.model';
 import { Carro } from '../../models/carro.model';
 
 @Component({
@@ -70,4 +69,16 @@ export class MarcaCarrosComponent implements OnInit {
   voltar() {
     this.localizacao.back();
   }
+
+  formatarPreco(preco: number): string {
+    return preco.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    });
+  }
+
+  formatarKm(km: number): string {
+    return km.toLocaleString('pt-BR') + ' km';
+  }
 }
+

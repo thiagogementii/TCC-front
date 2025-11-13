@@ -1,6 +1,4 @@
-<app-cabecalho></app-cabecalho>
-
-<div class="pagina-marca">
+  <div class="pagina-marca">
   <div class="cabecalho-marca">
     <div class="container">
       <button class="botao-voltar" (click)="voltar()">
@@ -15,21 +13,60 @@
   </div>
 
   <div class="container">
-    <div class="grade-carros">
+    <!-- Loading -->
+    <div class="loading" *ngIf="carregando">
+      <div class="spinner"></div>
+      <p>Carregando carros...</p>
+    </div>
+
+    <!-- Nenhum carro -->
+    <div class="nenhum-resultado" *ngIf="!carregando && carros.length === 0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="1" y="3" width="15" height="13"></rect>
+        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+        <circle cx="5.5" cy="18.5" r="2.5"></circle>
+        <circle cx="18.5" cy="18.5" r="2.5"></circle>
+      </svg>
+      <h3>Nenhum carro disponível</h3>
+      <p>Não encontramos carros desta marca no momento.</p>
+    </div>
+
+    <!-- Grade de carros -->
+    <div class="grade-carros" *ngIf="!carregando && carros.length > 0">
       <div class="card-carro" *ngFor="let carro of carros">
         <div class="imagem-carro">
           <img [src]="carro.imagem" [alt]="carro.nome">
-          <span class="ano-carro">{{ carro.ano }}</span>
+          <span class="badge-ano">{{ carro.ano }}</span>
         </div>
         <div class="info-carro">
-          <h3>{{ carro.nome }}</h3>
-          <p class="preco-carro">R$ {{ carro.preco | number:'1.0-0' }}</p>
+          <span class="marca-carro">{{ carro.nomeMarca || nomeMarca }}</span>
+          <h3 class="nome-carro">{{ carro.nome }}</h3>
           <div class="detalhes-carro">
-            <span>{{ carro.km | number:'1.0-0' }} km</span>
-            <span>•</span>
-            <span>{{ carro.transmissao }}</span>
+            <div class="detalhe">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>{{ carro.ano }}</span>
+            </div>
+            <div class="detalhe">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M2 12h20"></path>
+              </svg>
+              <span>{{ formatarKm(carro.km) }}</span>
+            </div>
+            <div class="detalhe">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+              <span>{{ carro.transmissao }}</span>
+            </div>
           </div>
-          <button class="botao-ver">Ver detalhes</button>
+          <div class="preco-carro">
+            <span class="valor">{{ formatarPreco(carro.preco) }}</span>
+          </div>
+          <button class="botao-detalhes">Ver detalhes</button>
         </div>
       </div>
     </div>

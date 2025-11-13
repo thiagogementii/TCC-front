@@ -13,6 +13,7 @@ import { MarcaCarrosComponent } from './pages/marca-carros/marca-carros.componen
 import { HeroCarouselComponent } from './component/hero-carousel/hero-carousel.component';
 import { SearchBarComponent } from './component/search-bar/search-bar.component';
 import { BrandsCarouselComponent } from './component/brands-carousel/brands-carousel.component';
+import { BuscaResultadosComponent } from './pages/busca-resultados/busca-resultados.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,14 @@ import { BrandsCarouselComponent } from './component/brands-carousel/brands-caro
     HeroCarouselComponent,
     SearchBarComponent,
     BrandsCarouselComponent,
+    BuscaResultadosComponent,
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

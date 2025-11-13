@@ -1,0 +1,99 @@
+<app-cabecalho></app-cabecalho>
+
+<section class="secao-resultados">
+  <div class="container-resultados">
+    <!-- Cabeçalho da busca -->
+    <div class="cabecalho-busca">
+      <button class="botao-voltar" (click)="voltarInicio()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        Voltar
+      </button>
+      <h1>Resultados da busca</h1>
+      <p class="consulta-busca">Você pesquisou por: <strong>"{{ consulta }}"</strong></p>
+    </div>
+
+    <!-- Barra de busca -->
+    <app-barra-busca
+      [titulo]="'Refinar busca'"
+      [placeholderTexto]="consulta"
+      [textoBotao]="'Buscar'"
+      (buscar)="novaBusca($event)">
+    </app-barra-busca>
+
+    <!-- Loading -->
+    <div class="loading" *ngIf="carregando">
+      <div class="spinner"></div>
+      <p>Buscando carros...</p>
+    </div>
+
+    <!-- Erro -->
+    <div class="mensagem-erro" *ngIf="erro && !carregando">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <h3>{{ erro }}</h3>
+      <button class="botao-tentar-novamente" (click)="buscarCarros()">Tentar novamente</button>
+    </div>
+
+    <!-- Nenhum resultado -->
+    <div class="nenhum-resultado" *ngIf="!carregando && !erro && carros.length === 0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+      <h3>Nenhum carro encontrado</h3>
+      <p>Tente buscar por outra marca, modelo ou ano.</p>
+    </div>
+
+    <!-- Resultados -->
+    <div class="resultados" *ngIf="!carregando && !erro && carros.length > 0">
+      <div class="info-resultados">
+        <p>Encontramos <strong>{{ carros.length }}</strong> {{ carros.length === 1 ? 'veículo' : 'veículos' }}</p>
+      </div>
+
+      <div class="grade-carros">
+        <div class="card-carro" *ngFor="let carro of carros">
+          <div class="imagem-carro">
+            <img [src]="carro.imagem" [alt]="carro.nome">
+            <span class="badge-ano">{{ carro.ano }}</span>
+          </div>
+          <div class="info-carro">
+            <span class="marca-carro">{{ carro.nomeMarca }}</span>
+            <h3 class="nome-carro">{{ carro.nome }}</h3>
+            <div class="detalhes-carro">
+              <div class="detalhe">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>{{ carro.ano }}</span>
+              </div>
+              <div class="detalhe">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v20M2 12h20"></path>
+                </svg>
+                <span>{{ formatarKm(carro.km) }}</span>
+              </div>
+              <div class="detalhe">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 6v6l4 2"></path>
+                </svg>
+                <span>{{ carro.transmissao }}</span>
+              </div>
+            </div>
+            <div class="preco-carro">
+              <span class="valor">{{ formatarPreco(carro.preco) }}</span>
+            </div>
+            <button class="botao-detalhes">Ver detalhes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
