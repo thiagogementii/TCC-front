@@ -14,6 +14,7 @@ import { HeroCarouselComponent } from './component/hero-carousel/hero-carousel.c
 import { SearchBarComponent } from './component/search-bar/search-bar.component';
 import { BrandsCarouselComponent } from './component/brands-carousel/brands-carousel.component';
 import { BuscaResultadosComponent } from './pages/busca-resultados/busca-resultados.component';
+import { DetalhesCarroComponent } from './pages/detalhes-carro/detalhes-carro.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BuscaResultadosComponent } from './pages/busca-resultados/busca-resulta
     SearchBarComponent,
     BrandsCarouselComponent,
     BuscaResultadosComponent,
+    DetalhesCarroComponent,
   ],
   imports: [
     BrowserModule,

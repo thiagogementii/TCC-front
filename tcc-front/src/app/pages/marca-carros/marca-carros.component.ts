@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ApiService } from '../../services/api.service';
+import { ModalService } from '../../services/modal.service';
 import { Carro } from '../../models/carro.model';
 
 @Component({
@@ -20,7 +21,8 @@ export class MarcaCarrosComponent implements OnInit {
     private rota: ActivatedRoute,
     private router: Router,
     private localizacao: Location,
-    private servicoApi: ApiService
+    private servicoApi: ApiService,
+    private modalService: ModalService
   ) {}
 
   ngOnInit() {
@@ -79,6 +81,12 @@ export class MarcaCarrosComponent implements OnInit {
 
   formatarKm(km: number): string {
     return km.toLocaleString('pt-BR') + ' km';
+  }
+
+  verDetalhes(id?: number) {
+    if (id) {
+      this.modalService.abrirDetalhes(id);
+    }
   }
 }
 

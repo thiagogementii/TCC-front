@@ -89,7 +89,7 @@
             <div class="preco-carro">
               <span class="valor">{{ formatarPreco(carro.preco) }}</span>
             </div>
-            <button class="botao-detalhes">Ver detalhes</button>
+            <button class="botao-detalhes" (click)="verDetalhes(carro.id)">Ver detalhes</button>
           </div>
         </div>
       </div>
@@ -97,3 +97,5 @@
   </div>
 </section>
 
+<!-- Modal de detalhes do carro -->
+<app-detalhes-carro></app-detalhes-carro>

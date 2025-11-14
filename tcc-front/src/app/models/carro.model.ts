@@ -7,7 +7,7 @@ export interface Carro {
   preco: number;
   km: number;
   transmissao: string;
-  imagem: string;
+  imagem?: string;
   descricao?: string;
 }
 
