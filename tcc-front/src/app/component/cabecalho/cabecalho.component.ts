@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cabecalho',
@@ -13,8 +14,10 @@ export class CabecalhoComponent {
     { label: 'Leilões', route: '/comprar/leiloes' }
   ];
 
-  onComprarSelect(item: any) {
-    // manipulador de seleção do dropdown — por ora apenas loga. Ajuste conforme necessidade.
-    console.log('Selecionado do dropdown Comprar:', item);
+  constructor(private router: Router) {}
+
+  voltarInicio() {
+    this.router.navigate(['/inicio']);
   }
+
 }
