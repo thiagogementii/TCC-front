@@ -1,1 +1,12 @@
+/* Reset global spacing so sections podem ir full-bleed */
+html, body, app-root {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
 /* You can add global styles to this file, and also import other style files */

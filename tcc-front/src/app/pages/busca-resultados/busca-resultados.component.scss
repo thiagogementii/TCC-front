@@ -8,55 +8,76 @@
     margin: 0 auto;
 
     .cabecalho-busca {
-      margin-bottom: 40px;
+      /* Cabeçalho estilo página de marca (gradiente vermelho) */
+      background: linear-gradient(135deg, #d6001c, #990112);
+      /* Restaurar padding-top para que a faixa branca (cabecalho global) fique visível acima do bloco vermelho */
+      padding: 40px 20px 60px;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+
+      /* Garantir que o bloco vermelho fique abaixo da faixa branca do cabeçalho */
+      margin-top: 0;
+
+      /* Full-bleed: ocupa toda a largura da viewport */
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      border-radius: 0;
+
+       /* Conteúdo interno alinhado e limitado (padronizado com outras páginas) */
+       .cabecalho-inner {
+         max-width: 1400px;
+         margin: 0 auto;
+         /* Aumenta o padding-top interno para dar espaço ao botão absoluto
+            e manter o título centralizado sem gerar gap externo. */
+         padding: 44px 24px 12px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         gap: 12px;
+         text-align: center;
+       }
+      margin-bottom: 24px;
 
       .botao-voltar {
+        /* restaurar ao canto esquerdo, posição absoluta relativa ao cabeçalho */
+        position: absolute;
+        left: 24px;
+        top: 20px;
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: #fff;
-        border: 2px solid #e2e8f0;
+        background: rgba(255,255,255,0.18);
+        border: 1px solid rgba(255,255,255,0.28);
+        color: #fff;
+        padding: 8px 18px;
         border-radius: 8px;
-        padding: 10px 20px;
         font-size: 14px;
-        font-weight: 600;
-        color: #1a1a1a;
         cursor: pointer;
         transition: all 0.3s ease;
-        margin-bottom: 20px;
         font-family: 'Inter', sans-serif;
 
         &:hover {
-          border-color: #d6001c;
-          color: #d6001c;
-          transform: translateX(-4px);
-        }
-
-        svg {
-          transition: transform 0.3s ease;
-        }
-
-        &:hover svg {
+          background: rgba(255,255,255,0.28);
           transform: translateX(-4px);
         }
       }
 
       h1 {
-        font-size: 36px;
+        font-size: 48px;
         font-weight: 700;
-        margin: 0 0 12px 0;
-        color: #1a1a1a;
+        margin: 0 0 8px 0;
         font-family: 'Inter', sans-serif;
       }
 
       .consulta-busca {
-        font-size: 16px;
-        color: #64748b;
+        font-size: 18px;
         margin: 0;
+        opacity: 0.95;
 
-        strong {
-          color: #d6001c;
-        }
+        strong { color: #fff; }
       }
     }
 
@@ -170,7 +191,8 @@
       margin-top: 40px;
 
       .info-resultados {
-        margin-bottom: 24px;
+        margin: 0 auto 28px auto;
+        text-align: center;
 
         p {
           font-size: 18px;
@@ -178,9 +200,7 @@
           margin: 0;
           font-family: 'Inter', sans-serif;
 
-          strong {
-            color: #d6001c;
-          }
+          strong { color: #d6001c; }
         }
       }
 
@@ -188,6 +208,8 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 24px;
+        padding: 40px 0;
+        margin-top: 24px; /* espaço extra entre cabeçalho e cards, evitando sobreposição */
 
         .card-carro {
           background: #fff;
@@ -202,17 +224,24 @@
             box-shadow: 0 12px 24px rgba(214, 0, 28, 0.15);
           }
 
-          .imagem-carro {
-            position: relative;
-            width: 100%;
-            height: 240px;
-            overflow: hidden;
+            .imagem-carro {
+              position: relative;
+              width: 100%;
+              height: 240px;
+              overflow: hidden;
+              display: flex;
+              /* alinhar ao topo para manter todas imagens na mesma linha */
+              align-items: flex-start;
+              justify-content: center;
 
             img {
-              width: 100%;
+              /* Garantir que a imagem caiba inteira e fique alinhada ao topo do card */
               height: 100%;
-              object-fit: cover;
-              transition: transform 0.3s ease;
+              width: auto;
+              object-fit: contain;
+              object-position: center top;
+              display: block;
+              transition: transform 0.25s ease;
             }
 
             .badge-ano {
@@ -229,8 +258,9 @@
             }
           }
 
+          /* zoom sutil no hover, sem causar corte */
           &:hover .imagem-carro img {
-            transform: scale(1.05);
+            transform: scale(1.02);
           }
 
           .info-carro {
@@ -342,6 +372,8 @@
         .consulta-busca {
           font-size: 14px;
         }
+        /* garantir espaço adequado em mobile */
+        margin-top: 0;
       }
 
       .resultados .grade-carros {

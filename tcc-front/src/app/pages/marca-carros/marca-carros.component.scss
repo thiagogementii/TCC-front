@@ -78,7 +78,8 @@
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
   padding: 40px 0;
-  margin-top: -40px;
+  /* Aumentar espaço entre o cabeçalho vermelho e os cards para evitar sobreposição */
+  margin-top: 24px;
 }
 
 .card-carro {
@@ -89,6 +90,7 @@
   border: 2px solid transparent;
 
   &:hover {
+    /* Restaurando o estilo original com borda vermelha, sombra e deslocamento */
     border-color: #d6001c;
     transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(214, 0, 28, 0.15);
@@ -99,12 +101,19 @@
     width: 100%;
     height: 240px;
     overflow: hidden;
+    display: flex;
+    /* alinhar ao topo para que todas as imagens comecem na mesma linha */
+    align-items: flex-start;
+    justify-content: center;
 
     img {
-      width: 100%;
+      /* Garantir que a imagem caiba inteira e fique alinhada ao topo do card */
       height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
+      width: auto;
+      object-fit: contain;
+      object-position: center top;
+      display: block;
+      transition: transform 0.25s ease;
     }
 
     .badge-ano {
@@ -121,8 +130,9 @@
     }
   }
 
+  /* zoom bem sutil no hover (opcional) - não causa corte por conta de object-fit: contain */
   &:hover .imagem-carro img {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
 
   .info-carro {

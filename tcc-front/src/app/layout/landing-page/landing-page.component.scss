@@ -38,6 +38,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      /* cortar/centralizar imagens do hero para enquadramento consistente */
+      object-position: center 15%;
     }
 
     .carousel-overlay {
