@@ -1,16 +1,11 @@
-  <div class="pagina-marca">
-  <div class="cabecalho-marca">
-    <div class="container">
-      <button class="botao-voltar" (click)="voltar()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-        Voltar
-      </button>
-      <h1>{{ nomeMarca }}</h1>
-      <p>{{ quantidadeCarros }} veículos disponíveis</p>
-    </div>
-  </div>
+<div class="pagina-marca">
+  <!-- Cabeçalho reutilizável -->
+  <app-page-header
+    [titulo]="nomeMarca"
+    [subtitulo]="quantidadeCarros + ' veículos disponíveis'"
+    [mostrarBotaoVoltar]="true"
+    (voltar)="voltar()">
+  </app-page-header>
 
   <div class="container">
     <!-- Loading -->
