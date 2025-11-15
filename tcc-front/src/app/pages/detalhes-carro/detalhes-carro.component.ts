@@ -68,5 +68,26 @@ export class DetalhesCarroComponent implements OnInit, OnDestroy {
   formatarKm(km: number): string {
     return km.toLocaleString('pt-BR') + ' km';
   }
+
+  abrirWhatsApp() {
+    if (!this.carro) return;
+
+    // Número fictício do WhatsApp (formato: código do país + DDD + número)
+    const numeroWhatsApp = '5511999999999';
+
+    // Mensagem pré-formatada com informações do carro
+    const mensagem = `Olá! Tenho interesse no veículo:\n\n` +
+      `*${this.carro.nomeMarca} ${this.carro.nome}*\n` +
+      `Ano: ${this.carro.ano}\n` +
+      `Preço: ${this.formatarPreco(this.carro.preco)}\n\n` +
+      `Gostaria de mais informações.`;
+
+    // Codifica a mensagem para URL
+    const mensagemCodificada = encodeURIComponent(mensagem);
+
+    // Abre o WhatsApp Web ou App (dependendo do dispositivo)
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
+    window.open(urlWhatsApp, '_blank');
+  }
 }
 
