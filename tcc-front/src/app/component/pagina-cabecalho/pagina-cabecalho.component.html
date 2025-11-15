@@ -1,9 +1,12 @@
 <div class="cabecalho-pagina">
   <div class="container">
     <button class="btn-voltar" *ngIf="mostrarBotaoVoltar" (click)="onVoltarClick()">
-      <i class="fas fa-chevron-left"></i> Voltar
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      {{ textoBotaoVoltar }}
     </button>
     <h1>{{ titulo }}</h1>
-    <p>{{ subtitulo }}</p>
+    <p *ngIf="subtitulo">{{ subtitulo }}</p>
   </div>
 </div>

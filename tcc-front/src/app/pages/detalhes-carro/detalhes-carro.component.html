@@ -2,31 +2,31 @@
   <div class="pagina-detalhes" (click)="$event.stopPropagation()">
     <!-- Loading -->
     <div class="loading" *ngIf="carregando">
-    <div class="spinner"></div>
-    <p>Carregando detalhes...</p>
-  </div>
+      <div class="spinner"></div>
+      <p>Carregando detalhes...</p>
+    </div>
 
-  <!-- Erro -->
-  <div class="mensagem-erro" *ngIf="erro && !carregando">
-    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="12" cy="12" r="10"></circle>
-      <line x1="12" y1="8" x2="12" y2="12"></line>
-      <line x1="12" y1="16" x2="12.01" y2="16"></line>
-    </svg>
-    <h3>{{ erro }}</h3>
-    <button class="botao-voltar-erro" (click)="fechar()">Voltar</button>
-  </div>
-
-  <!-- Detalhes do carro -->
-  <div class="container-detalhes" *ngIf="!carregando && !erro && carro">
-
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="15 18 9 12 15 6"></polyline>
+    <!-- Erro -->
+    <div class="mensagem-erro" *ngIf="erro && !carregando">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
       </svg>
-      Voltar
+      <h3>{{ erro }}</h3>
+      <button class="botao-voltar-erro" (click)="fechar()">Voltar</button>
+    </div>
 
+    <!-- Detalhes do carro -->
+    <div class="container-detalhes" *ngIf="!carregando && !erro && carro">
+      <button class="botao-voltar" (click)="fechar()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        Voltar
+      </button>
 
-    <div class="conteudo-detalhes">
+      <div class="conteudo-detalhes">
       <div class="imagem-principal">
         <img [src]="carro.imagem" [alt]="carro.nome">
       </div>
@@ -114,7 +114,6 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 </div>
-</div>
-

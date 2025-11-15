@@ -2,8 +2,8 @@
   background: linear-gradient(135deg, #d6001c 0%, #a00015 100%);
   color: #fff;
   padding: 40px 20px 80px;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  width: 100%;
+  max-width: 100%;
   position: relative;
 
   .container {
@@ -27,13 +27,17 @@
     transition: all 0.3s ease;
     font-family: 'Inter', sans-serif;
 
-    .fas {
-      margin-right: 8px;
+    svg {
+      transition: transform 0.3s ease;
     }
 
     &:hover {
       background: rgba(255, 255, 255, 0.3);
       transform: translateX(-4px);
+
+      svg {
+        transform: translateX(-4px);
+      }
     }
   }
 

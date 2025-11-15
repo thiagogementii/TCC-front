@@ -1,8 +1,10 @@
 .carrossel-hero {
   position: relative;
   /* tornar full-bleed: ocupar toda a largura da viewport mesmo dentro de contêineres com padding */
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
   height: 600px;
   overflow: hidden;
   background: #000;

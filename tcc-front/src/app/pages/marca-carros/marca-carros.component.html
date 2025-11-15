@@ -1,14 +1,13 @@
-<div class="pagina-marca">
-  <!-- Cabeçalho reutilizável -->
-  <app-page-header
-    [titulo]="nomeMarca"
-    [subtitulo]="quantidadeCarros + ' veículos disponíveis'"
-    [mostrarBotaoVoltar]="true"
-    (voltar)="voltar()">
-  </app-page-header>
+<app-cabecalho></app-cabecalho>
+<app-pagina-cabecalho
+  [titulo]="nomeMarca"
+  [subtitulo]="quantidadeCarros + ' veículos disponíveis'"
+  [mostrarBotaoVoltar]="true"
+  (voltar)="voltar()">
+</app-pagina-cabecalho>
 
-<div class="pagina-marca">
-  <div class="container">
+<section class="secao-marca">
+  <div class="container-marca">
     <!-- Loading -->
     <div class="loading" *ngIf="carregando">
       <div class="spinner"></div>
@@ -68,8 +67,7 @@
       </div>
     </div>
   </div>
-</div>
-</div>
+</section>
 
 <!-- Modal de detalhes do carro -->
 <app-detalhes-carro></app-detalhes-carro>

@@ -9,6 +9,7 @@ export class PaginaCabecalhoComponent {
   @Input() titulo: string = '';
   @Input() subtitulo: string = '';
   @Input() mostrarBotaoVoltar: boolean = true;
+  @Input() textoBotaoVoltar: string = 'Voltar';
 
   @Output() voltar = new EventEmitter<void>();
 

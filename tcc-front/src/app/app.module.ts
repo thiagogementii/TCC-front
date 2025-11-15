@@ -15,7 +15,6 @@ import { SearchBarComponent } from './component/search-bar/search-bar.component'
 import { BrandsCarouselComponent } from './component/brands-carousel/brands-carousel.component';
 import { BuscaResultadosComponent } from './pages/busca-resultados/busca-resultados.component';
 import { DetalhesCarroComponent } from './pages/detalhes-carro/detalhes-carro.component';
-import { PageHeaderComponent } from './component/page-header/page-header.component';
 import { PaginaCabecalhoComponent } from './component/pagina-cabecalho/pagina-cabecalho.component';
 
 @NgModule({
@@ -30,7 +29,6 @@ import { PaginaCabecalhoComponent } from './component/pagina-cabecalho/pagina-ca
     BrandsCarouselComponent,
     BuscaResultadosComponent,
     DetalhesCarroComponent,
-    PageHeaderComponent,
     PaginaCabecalhoComponent,
   ],
   imports: [
