@@ -38,7 +38,10 @@
       </div>
 
       <div class="message-content">
-        <p>{{ mensagem.texto }}</p>
+        <p>
+          {{ mensagem.texto }}
+          <span class="cursor-digitando" *ngIf="mensagem.isBot && botDigitando && mensagens[mensagens.length - 1] === mensagem">|</span>
+        </p>
         <span class="message-time">{{ mensagem.timestamp | date:'HH:mm' }}</span>
       </div>
     </div>
