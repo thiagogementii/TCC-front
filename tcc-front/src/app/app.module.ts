@@ -16,6 +16,7 @@ import { BrandsCarouselComponent } from './component/brands-carousel/brands-caro
 import { BuscaResultadosComponent } from './pages/busca-resultados/busca-resultados.component';
 import { DetalhesCarroComponent } from './pages/detalhes-carro/detalhes-carro.component';
 import { PageHeaderComponent } from './component/page-header/page-header.component';
+import { PaginaCabecalhoComponent } from './component/pagina-cabecalho/pagina-cabecalho.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PageHeaderComponent } from './component/page-header/page-header.compone
     BuscaResultadosComponent,
     DetalhesCarroComponent,
     PageHeaderComponent,
+    PaginaCabecalhoComponent,
   ],
   imports: [
     BrowserModule,

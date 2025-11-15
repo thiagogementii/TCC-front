@@ -1,0 +1,73 @@
+@import '../../../styles.scss';
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.faixa-branca {
+  background-color: #ffffff;
+  padding: 15px 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid #eeeeee;
+
+  .logo {
+    height: 25px;
+    margin-left: 8.5%;
+  }
+}
+
+.cabecalho-pagina {
+  background: linear-gradient(90deg, $cor-primaria 0%, darken($cor-primaria, 10%) 100%);
+  color: #ffffff;
+  padding: 40px 0;
+  text-align: left;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  position: relative;
+  padding-left: 8.5%;
+  box-sizing: border-box;
+
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 5px 0 0 0;
+    opacity: 0.9;
+  }
+
+  .btn-voltar {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+
+    .fas {
+      margin-right: 8px;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}

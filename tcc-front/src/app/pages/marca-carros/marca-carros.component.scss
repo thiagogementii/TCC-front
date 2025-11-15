@@ -3,11 +3,14 @@
   background: #f8f9fa;
 }
 
-
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 40px 20px 20px;
+  margin-top: -60px;
+  position: relative;
+  z-index: 2;
+  background-color: transparent;
 
   // Loading
   .loading {
@@ -16,7 +19,7 @@
     align-items: center;
     justify-content: center;
     padding: 60px 20px;
-    margin-top: -40px;
+    margin-top: 0; /* Reset margin-top */
 
     .spinner {
       width: 48px;
@@ -50,7 +53,7 @@
     text-align: center;
     background: #fff;
     border-radius: 16px;
-    margin-top: -40px;
+    margin-top: 0; /* Reset margin-top */
 
     svg {
       color: #94a3b8;
@@ -152,7 +155,7 @@
       font-size: 20px;
       font-weight: 700;
       color: #1a1a1a;
-      margin: 0 0 12px 0;
+      margin: 0 0 16px 0;
       font-family: 'Inter', sans-serif;
       line-height: 1.3;
     }

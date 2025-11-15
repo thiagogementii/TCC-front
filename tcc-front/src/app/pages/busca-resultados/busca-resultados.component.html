@@ -1,24 +1,14 @@
-<app-cabecalho></app-cabecalho>
+<app-pagina-cabecalho
+  [titulo]="'Resultados da busca'"
+  [subtitulo]="'Você pesquisou por: ' + consulta"
+  (voltar)="voltarInicio()"
+></app-pagina-cabecalho>
 
 <section class="secao-resultados">
   <div class="container-resultados">
-    <!-- Cabeçalho da busca -->
-    <div class="cabecalho-busca">
-      <div class="cabecalho-inner">
-        <button class="botao-voltar" (click)="voltarInicio()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-          Voltar
-        </button>
-        <h1>Resultados da busca</h1>
-        <p class="consulta-busca">Você pesquisou por: <strong>"{{ consulta }}"</strong></p>
-      </div>
-    </div>
-
     <!-- Barra de busca -->
     <app-barra-busca
-      [titulo]="'Refinar busca'"
+      [titulo]="''"
       [placeholderTexto]="consulta"
       [textoBotao]="'Buscar'"
       (buscar)="novaBusca($event)">
