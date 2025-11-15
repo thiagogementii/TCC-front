@@ -1,12 +1,6 @@
-<div class="faixa-branca">
-  <div class="faixa-inner">
-    <img src="assets/logo.png" alt="NenoMotors Logo" class="logo">
-    <span class="logo-texto">NenoMotors</span>
-  </div>
-</div>
 <div class="cabecalho-pagina">
   <div class="container">
-    <button class="btn-voltar" (click)="onVoltarClick()">
+    <button class="btn-voltar" *ngIf="mostrarBotaoVoltar" (click)="onVoltarClick()">
       <i class="fas fa-chevron-left"></i> Voltar
     </button>
     <h1>{{ titulo }}</h1>

@@ -1,37 +1,7 @@
-.faixa-branca {
-  background: #fff;
-  padding: 12px 0;
-  border-bottom: 1px solid #e2e8f0;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  position: relative;
-  z-index: 10;
-
-  .faixa-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .logo {
-    height: 25px;
-  }
-
-  .logo-texto {
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: #1a1a1a;
-  }
-}
-
 .cabecalho-pagina {
   background: linear-gradient(135deg, #d6001c 0%, #a00015 100%);
   color: #fff;
-  padding: 40px 20px 80px; /* Aumentar padding-bottom para dar espaço */
+  padding: 40px 20px 80px;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   position: relative;
